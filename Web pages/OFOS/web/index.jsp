@@ -1,8 +1,4 @@
-<%-- 
-    Document   : index
-    Created on : Mar 19, 2021, 11:24:20 AM
-    Author     : Reyvaldo
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,7 +9,7 @@
         <title>Home Page</title>
     </head>
     <body>
-        <img src="css/main.jpg" alt="">
+        <img src="css/ofos.png" alt="">
         <div class="buttons">
             <input type="button" value="Login" onclick="location.href = 'login.jsp'">
             <input type="button" value="Register" onclick="location.href = 'register.jsp'">

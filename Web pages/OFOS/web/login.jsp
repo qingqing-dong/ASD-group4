@@ -1,8 +1,4 @@
-<%-- 
-    Document   : login
-    Created on : Mar 20, 2021, 1:36:40 PM
-    Author     : Reyvaldo
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

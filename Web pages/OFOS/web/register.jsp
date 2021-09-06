@@ -1,8 +1,4 @@
-<%-- 
-    Document   : register
-    Created on : Mar 19, 2021, 11:26:36 AM
-    Author     : Reyvaldo
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
