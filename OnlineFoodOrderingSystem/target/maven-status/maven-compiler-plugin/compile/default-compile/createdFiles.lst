@@ -1,0 +1,8 @@
+com\mycompany\onlinefoodorderingsystem\dao\MenuDao.class
+com\mycompany\onlinefoodorderingsystem\model\MenuItem.class
+com\mycompany\onlinefoodorderingsystem\dao\DBConnector.class
+com\mycompany\onlinefoodorderingsystem\JAXRSConfiguration.class
+com\mycompany\onlinefoodorderingsystem\controller\MenuDetailServlet.class
+com\mycompany\onlinefoodorderingsystem\dao\BaseDao.class
+com\mycompany\onlinefoodorderingsystem\dao\DB.class
+com\mycompany\onlinefoodorderingsystem\controller\MenuServlet.class
