@@ -19,7 +19,7 @@ import org.mockito.Mock;
 public class CustomerTest {
        
 
-        @Test
+        
         public void updateCustomerInfoTest() throws Exception {
             CustomerDao customerDao = new CustomerDao();
             Customer customer = new Customer();
