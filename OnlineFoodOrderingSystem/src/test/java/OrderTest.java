@@ -49,7 +49,7 @@ public class OrderTest {
          Order list = db.findOrder(101);
          assertTrue(list != null);
     }
-    
+   
     public void testUpdate() throws SQLException{
         db.updateOrder(1001, 101, 10, 100);
         Order order = db.findOrder(101);

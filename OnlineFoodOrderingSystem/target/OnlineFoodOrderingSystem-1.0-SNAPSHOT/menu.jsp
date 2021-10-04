@@ -28,7 +28,7 @@
                             <a class="nav-link active" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="orderpage.jsp">Link</a>
+                            <a class="nav-link" href="searchOrder.jsp">Order</a>
                         </li>
                     </ul>
                     <form class="d-flex">

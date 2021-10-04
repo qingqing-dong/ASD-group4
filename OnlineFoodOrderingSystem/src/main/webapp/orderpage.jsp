@@ -2,6 +2,9 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.mycompany.onlinefoodorderingsystem.model.Order"%>
 <%@page import="com.mycompany.onlinefoodorderingsystem.dao.OrderDao"%>
+<%@page import="java.sql.Timestamp"%>
+<%@page import="java.util.Date"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,10 +16,12 @@
     </head>
     <body>
         <%
-            
+            Order order =(Order) session.getAttribute("order");
             OrderDao orderDao = (OrderDao) session.getAttribute("orderDao");
             ArrayList<Order> orderLists = orderDao.listAllOrder();
         %>
+        
+        
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Navbar</a>
@@ -26,10 +31,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Home</a>
+                            <a class="nav-link active" href="menu">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">back</a>
+                            <a class="nav-link" href="menu.html">back</a>
                         </li>
                     </ul>
                     <form class="d-flex">
@@ -38,8 +43,12 @@
                     </form>
                 </div>
             </div>
-        </nav>                               
-         </div>
+        </nav>               
+        
+       
+         
+         
+         
         <div class="container">
                         <h4>All Device</h4>
                     </div>
@@ -71,5 +80,8 @@
             </tbody>
         </table>
         
+        
+        
+         
     </body>
 </html>

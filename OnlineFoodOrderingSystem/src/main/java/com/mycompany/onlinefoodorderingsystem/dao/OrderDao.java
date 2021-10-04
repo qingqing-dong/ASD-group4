@@ -40,12 +40,13 @@ public class OrderDao {
         ResultSet rs = st.executeQuery(fetch);
          ArrayList<Order> orderList = new ArrayList();
          while (rs.next()){
+             int ID=rs.getInt(1);
              int dishID = rs.getInt(2);
              int customer = rs.getInt(3);
              int quantity = rs.getInt(4);
              int amount = rs.getInt(5);
              String orderDate= rs.getString(6);
-             orderList.add(new Order(dishID,customer,quantity,amount,orderDate));
+             orderList.add(new Order(ID,dishID,customer,quantity,amount,orderDate));
          }
         return orderList;
     }
@@ -55,7 +56,6 @@ public class OrderDao {
         ResultSet rs = st.executeQuery(fetch);
          while (rs.next()){
          int customer = rs.getInt(3);
-
          if(customer ==customerID){
              int orderID = rs.getInt(1);
              int dishID = rs.getInt(2);

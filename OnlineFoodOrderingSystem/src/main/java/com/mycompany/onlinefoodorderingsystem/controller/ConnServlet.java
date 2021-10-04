@@ -18,39 +18,34 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import com.mycompany.onlinefoodorderingsystem.dao.*;
 
-
 public class ConnServlet extends HttpServlet {
 
     private DBConnector db;
-    private OrderDao orderDao ;
+    private OrderDao orderDao;
     private Connection conn;
-  
-        
-    @Override 
+
+    @Override
     public void init() {
         try {
             db = new DBConnector();
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }      
+        }
     }
-    
-    @Override 
+
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");       
+        response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-        conn = db.openConnection();       
+        conn = db.openConnection();
         try {
             orderDao = new OrderDao(conn);
-          
         } catch (SQLException ex) {
             Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
-        session.setAttribute("orderDao", orderDao);           
-        
-        
+        session.setAttribute("orderDao", orderDao);
     }
+
     @Override
     public void destroy() {
         try {
