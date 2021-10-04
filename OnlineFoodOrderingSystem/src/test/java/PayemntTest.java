@@ -38,12 +38,12 @@ public class PayemntTest {
             db = new PaymentManager(conn);
     }
     
-  /*  @Test
+    /*@Test
     public void testAdd() throws SQLException{
         db.createPayment(10,10,"visa","10/5/2021",20);
         assertTrue(db.checkPayment(10));
-    }
-    @Test
+    }*/
+   /* @Test
     public void testRead() throws SQLException{
          Payment list = db.readPayment(10,"10/5/2021");
          assertTrue(list != null);
