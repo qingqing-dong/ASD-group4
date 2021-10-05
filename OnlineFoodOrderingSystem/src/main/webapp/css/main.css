@@ -1,0 +1,37 @@
+body{
+    background: url("man.png")no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: Arial;
+}
+
+
+h1{
+    padding-left:10px;
+    font-weight: bold;
+    font-size: 40px;
+    color: black;
+}
+
+.mainTable{
+    margin: auto;
+    margin-top: 5%;
+}
+
+table{
+    table-layout: fixed;
+    width: 90%;
+}
+
+table, th, td{
+    top:6%;
+    border: 2px solid black;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+th,td{
+    padding:10px;
+}
