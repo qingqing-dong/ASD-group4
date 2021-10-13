@@ -22,7 +22,6 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.*;
 import org.junit.Test;
 
-
 /**
  *
  * @author 47288
@@ -31,39 +30,34 @@ public class OrderTest {
     private DBConnector connector;
     private Connection conn;
     private OrderDao db;
-    public OrderTest() throws ClassNotFoundException, SQLException{
-            connector = new DBConnector();
-            conn = connector.openConnection();
-            db = new OrderDao(conn);
+    public OrderTest() throws ClassNotFoundException, SQLException {
+        connector = new DBConnector();
+        conn = connector.openConnection();
+        db = new OrderDao(conn);
     }
     
-        @Test
-    public void testAdd() throws SQLException{
-        db.createOrder(1001,101,5,50,"10/5/2021");
-        assertTrue(db.checkOrder(1001,101));
+    @Test
+    public void testAdd() throws SQLException {
+        db.createOrder(1001, 101, 5, 50, "10/5/2021");
+        assertTrue(db.checkOrder(1001, 101));
     }
     
     
-     @Test
-    public void testRead() throws SQLException{
-         Order list = db.findOrder(101);
-         assertTrue(list != null);
+    @Test
+    public void testRead() throws SQLException {
+        Order list = db.findOrder(101);
+        assertTrue(list != null);
     }
-   
-    public void testUpdate() throws SQLException{
+    @Test
+    public void testDelete() throws SQLException {
+       
+        db.deleteOrder(1001, 101);
+        assertTrue(db.findOrder(101)==null);
+    }
+    
+    public void testUpdate() throws SQLException {
         db.updateOrder(1001, 101, 10, 100);
         Order order = db.findOrder(101);
         assertTrue(order.getAmount()!=100 && order.getQuantity()==10);
     }
-    
-    @Test
-    public void testDelete() throws SQLException{
-        db.deleteOrder(1001, 101);
-        assertTrue(db.checkOrder(1002,101)==false);
-    }
-    
-   
-    
-  
-    
 }

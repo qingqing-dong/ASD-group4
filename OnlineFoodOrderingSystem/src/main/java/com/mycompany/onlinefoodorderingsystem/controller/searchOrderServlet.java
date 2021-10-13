@@ -46,7 +46,7 @@ public class searchOrderServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         HttpSession session = request.getSession();
         String customerID = request.getParameter("customerID");
-        Order order =(Order) session.getAttribute("order");
+        Order order =null;
        OrderDao orderDao = (OrderDao) session.getAttribute("orderDao");
       
            Validator validator = new Validator();

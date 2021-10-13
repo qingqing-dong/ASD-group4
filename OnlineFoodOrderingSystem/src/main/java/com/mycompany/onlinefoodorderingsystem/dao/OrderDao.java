@@ -69,7 +69,8 @@ public class OrderDao {
     }
     
     public void updateOrder(int dishID,int customerID,int quantity,int amount) throws SQLException{
-        st.executeLargeUpdate("UPDATE ofos.`order` SET  quantity='"+quantity+"' , amount='"+amount+"' WHERE dishID ='"+dishID+"' and customerID = '"+customerID+"'");
+         String columns = "UPDATE ofos.`order` SET  quantity='"+quantity+"' , amount='"+amount+"' WHERE dishID ='"+dishID+"' and customerID = '"+customerID+"'";
+        st.executeLargeUpdate(columns);
        }
     
     public void deleteOrder(int dishID,int customerID) throws SQLException{
