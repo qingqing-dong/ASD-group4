@@ -6,6 +6,7 @@
 package com.mycompany.onlinefoodorderingsystem.controller;
 
 import com.mycompany.onlinefoodorderingsystem.dao.DBStaffManager;
+import com.mycompany.onlinefoodorderingsystem.dao.StaffDao;
 import com.mycompany.onlinefoodorderingsystem.model.Staff;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -25,6 +26,7 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "StaffEditServlet", urlPatterns = {"/StaffEditServlet"})
 public class StaffEditServlet extends HttpServlet {
+    StaffDao staffDao = new StaffDao();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -78,6 +80,7 @@ public class StaffEditServlet extends HttpServlet {
         return "Short description";
     }// </editor-fold>
     
+    /*
       @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
@@ -93,7 +96,7 @@ public class StaffEditServlet extends HttpServlet {
         String zipcode = request.getParameter("zipcode");
         String address = streetNumber + "§" + streetName + "§" + suburb + "§" + state + "§" + zipcode;
         String phone_number = request.getParameter("phone_number");
-        DBStaffManager manager = (DBStaffManager) session.getAttribute("manager");
+        StaffDao manager = (StaffDao) session.getAttribute("manager");
         
         Staff staff = null;
         try {
@@ -109,6 +112,23 @@ public class StaffEditServlet extends HttpServlet {
             request.getRequestDispatcher("staffUpdate.jsp").include(request, response);
         }
         request.getRequestDispatcher("staffUpdate.jsp").include(request, response);
+    }
+*/
+    /*
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Staff staff = staffDao.getStaffById(1000);
+        request.setAttribute("Staff", staff);
+        request.getRequestDispatcher("staffInfo.jsp").forward(request, response);
+    }
+*/
+    
+    @Override
+    protected void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
+        Staff staff = staffDao.getStaffById(Integer.parseInt(request.getParameter("id")));
+        System.out.println(staff);
+        request.setAttribute("staff", staff);
+        request.getRequestDispatcher("staffInfo.jsp").forward(request, response);
     }
 
 

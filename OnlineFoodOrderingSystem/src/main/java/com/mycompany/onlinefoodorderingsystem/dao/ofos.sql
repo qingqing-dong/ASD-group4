@@ -59,13 +59,13 @@ DROP TABLE IF EXISTS `customer`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `customer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `FIRSTNAME` varchar(200) NOT NULL,
-  `LASTNAME` varchar(200) NOT NULL,
+  `FIRSTNAME` varchar(100) NOT NULL,
+  `LASTNAME` varchar(100) NOT NULL,
   `EMAIL` varchar(100) NOT NULL,
   `PASSWORD` varchar(100) NOT NULL,
-  `GENDER` varchar(1000) NOT NULL,
-  `ADDRESS` varchar(1000) NOT NULL,
-  `PHONENUMBER` varchar(1000) NOT NULL,
+  `GENDER` varchar(100) NOT NULL,
+  `ADDRESS` varchar(100) NOT NULL,
+  `PHONENUMBER` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
 )  AUTO_INCREMENT=100;
 
@@ -79,13 +79,13 @@ DROP TABLE IF EXISTS `staff`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `staff` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `FIRSTNAME` varchar(200) NOT NULL,
-  `LASTNAME` varchar(200) NOT NULL,
+  `FIRSTNAME` varchar(100) NOT NULL,
+  `LASTNAME` varchar(100) NOT NULL,
   `EMAIL` varchar(100) NOT NULL,
-  `PASSWORD` double NOT NULL,
-  `GENDER` varchar(1000) DEFAULT NULL,
-  `ADDRESS` varchar(1000) DEFAULT NULL,
-  `PHONENUMBER` varchar(1000) DEFAULT NULL,
+  `PASSWORD` varchar(100) NOT NULL,
+  `GENDER` varchar(100) DEFAULT NULL,
+  `ADDRESS` varchar(100) DEFAULT NULL,
+  `PHONENUMBER` varchar(100) DEFAULT NULL,
   `POSITION` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
 )  AUTO_INCREMENT=1000;

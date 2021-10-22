@@ -32,6 +32,7 @@ public class Staff {
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.password = password;
+        this.position = position;
     }
     
     public int getId() {
@@ -58,7 +59,7 @@ public class Staff {
         this.lastName = lastName;
     }
     
-    public void seteMmail(String eMail){
+    public void seteMail(String eMail){
         this.eMail = eMail;
     }
     

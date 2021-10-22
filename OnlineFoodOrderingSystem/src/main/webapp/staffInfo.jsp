@@ -4,6 +4,7 @@
     Author     : Xin Chen
 --%>
 
+<%@page import="com.mycompany.onlinefoodorderingsystem.dao.StaffDao"%>
 <%@page import="com.mycompany.onlinefoodorderingsystem.model.Staff"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,6 +13,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dis<t/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/info.css">
         <title>JSP Page</title>
     </head>
     <body>
@@ -31,7 +33,7 @@
                             <a class="nav-link" href="#">Link</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="staffUpdate.jsp">Update</a>
+                            <a class="nav-link" href="#">Link</a>
                         </li>
                     </ul>
                     <form class="d-flex">
@@ -44,6 +46,7 @@
         
         
         <% 
+            /*
             Staff staff = (Staff) session.getAttribute("staff"); 
             
             String[] address = staff.getAddress().split("§");
@@ -51,34 +54,23 @@
                 if (address[i].equals("null")) {
                     address[i] = "";
                 }
-            }
+            }*/
+            StaffDao staffDao = new StaffDao();
+           Staff staff = staffDao.getStaffById(1000);
         %>
         
-        <div>
+        <div class="info">
             <table>
-            <tr><th>Name</th> <td>${staff.firstName} ${staff.lastName}</td></tr>
-            <tr><th>Position</th> <td>${staff.position}</td></tr>
-            <tr><th>Email</th> <td>${staff.eMail}</td></tr>
-            <tr><th>Password</th> <td>${staff.password}</td></tr>
-            <tr><th>Gender</th> <td>${staff.gender}</td></tr>
-            <tr><th>Address</th> <td><table class ="address">
-                        <tr><th>street number</th> <td><%=address[0]%></td></tr>
-                        <tr><th>Street name</th> <td><%=address[1]%></td></tr>
-                        <tr><th>Suburb</th> <td><%=address[2]%></td></tr>
-                        <tr><th>State</th> <td><%=address[3]%></td></tr>
-                        <tr><th>Zip code</th> <td><%=address[4]%></td></tr>
-                    </table></td></tr>
-            
-            <tr><th>Phone Number</th> <td>${staff.phoneNumber}</td></tr>
+            <tr><th>Name</th> <td><%=staff.getFirstName()%> <%=staff.getLastName()%></td></tr>
+            <tr><th>Position</th> <td><%=staff.getPosition()%></td></tr>
+            <tr><th>Email</th> <td><%=staff.geteMail()%></td></tr>
+            <tr><th>Password</th> <td><%=staff.getPassword()%></td></tr>
+            <tr><th>Gender</th> <td><%=staff.getGender()%></td></tr>
+            <tr><th>Address</th> <td><%=staff.getAddress()%></td></tr>
+            <tr><th>Phone Number</th> <td><%=staff.getPhoneNumber()%></td></tr>
         </table>
         
-        <a href="CustomerUpdateServlet?email='<%= staff.geteMail()%>'
-                             &password='<%=staff.getPassword()%>'
-                             &first_name='<%=staff.getFirstName()%>'
-                             &last_name='<%=staff.getLastName()%>'
-                             &gender='<%=staff.getGender()%>'
-                             &address='<%=staff.getAddress()%>'
-                             &phone_number='<%=staff.getPhoneNumber()%>'"> 
+        <a href="StaffUpdateServlet?id=<%= staff.getId()%>"> 
         Edit
         </a>
         
