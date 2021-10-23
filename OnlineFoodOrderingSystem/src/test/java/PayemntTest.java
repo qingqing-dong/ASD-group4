@@ -38,6 +38,7 @@ public class PayemntTest {
             db = new PaymentManager(conn);
     }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     
     /*@Test
     public void testAdd() throws SQLException{
@@ -45,6 +46,9 @@ public class PayemntTest {
         assertTrue(db.checkPayment(10));
     }*/
    /* @Test
+=======
+   @Test
+>>>>>>> Stashed changes
 =======
    @Test
 >>>>>>> Stashed changes

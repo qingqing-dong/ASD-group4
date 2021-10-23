@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <testsuite tests="2" failures="0" name="MenuTest" time="0.412" errors="0" skipped="0">
+=======
+<testsuite tests="2" failures="0" name="MenuTest" time="0.382" errors="0" skipped="0">
+>>>>>>> Stashed changes
 =======
 <testsuite tests="2" failures="0" name="MenuTest" time="0.382" errors="0" skipped="0">
 >>>>>>> Stashed changes
@@ -69,8 +73,13 @@
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   <testcase classname="MenuTest" name="testServlet" time="0.408"/>
   <testcase classname="MenuTest" name="testGetMenuItemById" time="0.004"/>
+=======
+  <testcase classname="MenuTest" name="testServlet" time="0.376"/>
+  <testcase classname="MenuTest" name="testGetMenuItemById" time="0.006"/>
+>>>>>>> Stashed changes
 =======
   <testcase classname="MenuTest" name="testServlet" time="0.376"/>
   <testcase classname="MenuTest" name="testGetMenuItemById" time="0.006"/>
