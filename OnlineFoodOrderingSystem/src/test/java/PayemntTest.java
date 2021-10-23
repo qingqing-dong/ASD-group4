@@ -37,6 +37,7 @@ public class PayemntTest {
             conn = connector.openConnection();
             db = new PaymentManager(conn);
     }
+<<<<<<< Updated upstream
     
     /*@Test
     public void testAdd() throws SQLException{
@@ -44,21 +45,31 @@ public class PayemntTest {
         assertTrue(db.checkPayment(10));
     }*/
    /* @Test
+=======
+   @Test
+>>>>>>> Stashed changes
     public void testRead() throws SQLException{
-         Payment list = db.readPayment(10,"10/5/2021");
+         Payment list = db.readPayment(25,"10/5/2021");
          assertTrue(list != null);
-    }*/
-   /* @Test
+    }
+    @Test
     public void testUpdate() throws SQLException{
-        db.updatePayment(10, 12, 555, "bankcard","01/11/2021",30);
-        Payment payment = db.readPayment(10,"01/11/2021");
-        assertTrue(payment.getAmount()==30&& payment.getCardnumber()==555&& payment.getPaymentMethod().equals("bankcard"));
+        db.updatePayment(25, 12, 555, "visa","10/5/2021",30);
+        Payment payment = db.readPayment(25,"10/5/2021");
+        assertTrue(payment.getAmount()==30&& payment.getCardnumber()==555&& payment.getPaymentMethod().equals("visa"));
+    }
+    /*
+    @Test
+    public void testAdd() throws SQLException{
+        db.createPayment(10,10,"visa","10/5/2021",20);
+        assertTrue(db.checkPayment(25));
     }*/
-    
-    /*@Test
+
+    /*
+    @Test
     public void testDelete() throws SQLException{
-        assertTrue(db.checkPayment(10));
-        db.deletePayment(10);
-        assertTrue(db.readPayment(10,"01/11/2021")==null);
+        assertTrue(db.checkPayment(25));
+        db.deletePayment(25);
+        assertTrue(db.readPayment(25,"01/11/2021")==null);
     }*/
 }

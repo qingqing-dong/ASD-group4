@@ -26,7 +26,7 @@ public class PaymentManager {
     //Create a Payment
     public void createPayment(int OrderID,int cardnumber,String PaymentMethod,String PaymentDate,double amount) throws SQLException{
         String columns = "INSERT INTO OFOS.PAYMENT(ORDERID,CARDNUMBER,PAYMENTMETHOD,PAYMENTDATE,AMOUNT)";
-        String values = "VALUES("+OrderID+",'"+cardnumber+"','"+PaymentMethod+"','"+PaymentDate+"',"+amount+")";
+        String values = "VALUES("+OrderID+","+cardnumber+",'"+PaymentMethod+"','"+PaymentDate+"',"+amount+")";
         st.executeUpdate(columns+values);
     }
     //Read Payment by paymentID and date
@@ -77,7 +77,7 @@ public class PaymentManager {
      
     //Update payment by paymentID and date
     public void updatePayment(int PaymentID,int OrderID,int cardnumber,String PaymentMethod,String PaymentDate,double amount) throws SQLException {
-        String update = "UPDATE OFOS.PAYMENT SET PAYMENTMETHOD='" + PaymentMethod + "',CARDNUMBER='" + cardnumber + "', AMOUNT="+amount+" WHERE PAYMENTID=" + PaymentID + " AND PAYMENTDATE='" + PaymentDate + "'";
+        String update = "UPDATE OFOS.PAYMENT SET PAYMENTMETHOD='" + PaymentMethod + "',CARDNUMBER=" + cardnumber + ", AMOUNT="+amount+" WHERE PAYMENTID=" + PaymentID + " AND PAYMENTDATE='" + PaymentDate + "'";
         st.executeUpdate(update);
     }
     //delete payment by paymentID

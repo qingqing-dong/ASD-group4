@@ -46,12 +46,13 @@
             </div>
         <hr style="margin-top: 25px;"/>
         <div class="wholecontent">
-          
+          /*
               <%
                 PaymentManager paymentManager =(PaymentManager)session.getAttribute("paymentManager");
                 ArrayList<Payment> list = paymentManager.fecthPayments();
                  String resultInfor = (String) session.getAttribute("resultInfor");
               %>
+             */ 
             <center>
                 <h1>Payment Management</h1>
                 <h2>
