@@ -18,11 +18,7 @@ steps:
   inputs:
      command: 'install'
 
-- script: npx mocha
-- script: npm install -g @angular/cli
-- script: npm run compile
-- script: mocha test --reporter mocha-junit-reporter
-- script: npm test
+- script: npm OrderTest
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
