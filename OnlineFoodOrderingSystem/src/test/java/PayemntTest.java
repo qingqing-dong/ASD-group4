@@ -37,8 +37,7 @@ public class PayemntTest {
             conn = connector.openConnection();
             db = new PaymentManager(conn);
     }
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+
     
     /*@Test
     public void testAdd() throws SQLException{
