@@ -52,7 +52,7 @@ public class OrderDao {
     }
     
     public Order findOrder(int customerID) throws SQLException{
-        String fetch = "SELECT * FROM ofos.`order` WHERE customerID = '"+customerID+"'";
+        String fetch = "SELECT * FROM OFOS.ORDER WHERE customerID = '"+customerID+"'";
         ResultSet rs = st.executeQuery(fetch);
          while (rs.next()){
          int customer = rs.getInt(3);

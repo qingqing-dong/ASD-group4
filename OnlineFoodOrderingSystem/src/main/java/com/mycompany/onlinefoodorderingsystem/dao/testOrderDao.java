@@ -28,7 +28,7 @@ public class testOrderDao {
     private OrderDao db;
     
     public static void main (String [] agrs) throws ClassNotFoundException, SQLException{
-        (new testOrderDao()).runQueries();;
+        (new testOrderDao()).runQueries();
     }
     
     public testOrderDao() throws ClassNotFoundException, SQLException{
@@ -116,8 +116,10 @@ public class testOrderDao {
         System.out.print("customer ID : ");
         int customerID = Integer.parseInt(in.nextLine()); 
         //To change body of generated methods, choose Tools | Templates.
+        Order test = null;
          if(db.checkOrder(dishID, customerID)){
-            db.deleteOrder(dishID, customerID);
+             Order order = db.findOrder( customerID);
+            ;System.out.println(order.getQuantity());
         }
         else{System.out.println("Device does not exists.");}
         

@@ -65,29 +65,28 @@
             <div>                        
             <table class="table table-bordered text-nowrap">
                 <tbody>
+                    
                     <tr>
-                        <th class="">Name: </th>
-                        <td>${order.ID}</td>
+                        <th class="">DishID: </th>
+                        <td><%=order.getDishID()%></td>
                     </tr>
                     <tr>
-                        <th class="">Name: </th>
-                        <td>${order.dishID}</td>
+                        <th class="">CustomerID: </th>
+                        <td><%=order.getCustomerID()%></td>
+                    </tr>
+                    
+                    <tr>
+                        <th class="">quantity: </th>
+                        <td><%=order.getQuantity()%></td>
+                    </tr>
+                    
+                    <tr>
+                        <th class="">Amount: </th>
+                        <td><%=order.getAmount()%></td>
                     </tr>
                     <tr>
-                        <th class="">Name: </th>
-                        <td>${order.customerID}</td>
-                    </tr>
-                    <tr>
-                        <th class="">Type: </th>
-                        <td>${order.quantity}</td>
-                    </tr>
-                    <tr>
-                        <th class="">Price: </th>
-                        <td>${order.amount}</td>
-                    </tr>
-                    <tr>
-                        <th class="">Stock: </th>
-                        <td>${order.orderDate}</td>
+                        <th class="">OrderDate: </th>
+                        <td><%=order.getAmount()%></td>
                     </tr>
                 </tbody>                                                        
             </table>

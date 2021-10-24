@@ -46,7 +46,7 @@ public class searchOrderServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         HttpSession session = request.getSession();
         String customerID = request.getParameter("customerID");
-        Order order =null;
+        Order order=new Order();
        OrderDao orderDao = (OrderDao) session.getAttribute("orderDao");
       
            Validator validator = new Validator();
@@ -57,13 +57,15 @@ public class searchOrderServlet extends HttpServlet {
         }
         else{
             try{    
-               
-                    order = orderDao.findOrder(Integer.parseInt(customerID));
-                    session.setAttribute("order", order);
-                    request.getRequestDispatcher("searchOrder.jsp").include(request, response);
+                int ID=Integer.parseInt(customerID);
+                    order = orderDao.findOrder(ID);
+                    
+                    
             } catch (SQLException ex){
                 Logger.getLogger(searchOrderServlet.class.getName()).log(Level.SEVERE,null,ex);
             }
+            session.setAttribute("order", order);
+                    request.getRequestDispatcher("searchOrder.jsp").include(request, response);
         }
        
     }
