@@ -13,6 +13,17 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
+- script: npm install --only=dev
+- task: Npm@1
+  inputs:
+     command: 'install'
+
+- script: npx mocha
+- script: npm install -g @angular/cli
+- script: npm run compile
+- script: mocha test --reporter mocha-junit-reporter
+- script: npm test
+
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
