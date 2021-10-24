@@ -7,6 +7,7 @@ package com.mycompany.onlinefoodorderingsystem.controller;
 
 import com.mycompany.onlinefoodorderingsystem.dao.DBConnector;
 import com.mycompany.onlinefoodorderingsystem.dao.PaymentManager;
+import com.mycompany.onlinefoodorderingsystem.dao.SupplierManager;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -29,7 +30,8 @@ public class ConnServlet extends HttpServlet {
 
      private DBConnector db;
      private Connection conn;
-    private PaymentManager paymentManager;
+     private PaymentManager paymentManager;
+     private SupplierManager supplierManager;
         
     @Override 
     public void init() {
@@ -46,7 +48,7 @@ public class ConnServlet extends HttpServlet {
         HttpSession session = request.getSession();
         conn = db.openConnection();       
         try {
-            
+            supplierManager = new SupplierManager(conn);
             paymentManager = new PaymentManager(conn);
         } catch (SQLException ex) {
             Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
@@ -54,6 +56,7 @@ public class ConnServlet extends HttpServlet {
        
         
         session.setAttribute("paymentManager", paymentManager);
+        session.setAttribute("supplierManager", supplierManager);
         
     }
     @Override
