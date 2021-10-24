@@ -1,25 +1,34 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.onlinefoodorderingsystem.model;
 
-import java.sql.Date;
+import java.util.Date;
+import java.util.List;
 
-/**
- *
- * @author 47288
- */
 public class Order {
-        private int ID;
+    private Long id;
+    private String name;
+    private String contactNum;
+    private String address;
+    private Double totalSum;
+    private String createTime;
+    private Integer state;
+     private int ID;
         private int dishID;
         private int customerID;
         private int quantity;
         private int amount;
         private String orderDate;
-        
-        public Order(int ID,int dishID,int customerID,int quantity,int amount,String orderDate){
+
+    public Integer getState() {
+		return state;
+	}
+
+
+	public void setState(Integer state) {
+		this.state = state;
+	}
+
+
+    public Order(int ID,int dishID,int customerID,int quantity,int amount,String orderDate){
             this.ID=ID;
             this.dishID=dishID;
             this.customerID= customerID;
@@ -101,7 +110,53 @@ public class Order {
     }
 
 
-        
-        
-        
+    public String getCreateTime() {
+		return createTime;
+	}
+
+
+	public void setCreateTime(String createTime) {
+		this.createTime = createTime;
+	}
+
+
+	public Double getTotalSum() {
+        return totalSum;
+    }
+
+    public void setTotalSum(Double totalSum) {
+        this.totalSum = totalSum;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getContactNum() {
+        return contactNum;
+    }
+
+    public void setContactNum(String contactNum) {
+        this.contactNum = contactNum;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 }
+
