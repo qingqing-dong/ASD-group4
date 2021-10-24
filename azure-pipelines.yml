@@ -18,7 +18,6 @@ steps:
   inputs:
      command: 'install'
 
-- script: npm clean-install-test
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
