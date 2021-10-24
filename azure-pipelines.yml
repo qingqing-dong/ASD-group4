@@ -18,7 +18,7 @@ steps:
   inputs:
      command: 'install'
 
-- script: npm OrderTest
+- script: mocha OrderTest
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
