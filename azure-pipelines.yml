@@ -18,10 +18,7 @@ steps:
   inputs:
      command: 'install'
 
-- task: VisualStudioTestPlatformInstaller@1
-  inputs:
-    packageFeedSelector: 'nugetOrg'
-    versionSelector: 'latestPreRelease'
+
     
 - task: VSTest@2
   inputs:
