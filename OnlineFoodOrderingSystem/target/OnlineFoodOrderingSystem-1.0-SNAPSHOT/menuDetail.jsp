@@ -1,7 +1,7 @@
 <%-- 
     Document   : menu.jsp
     Created on : 22 Sept 2021, 3:11:25 pm
-    Author     : Jiahong Li
+    Author     : bhan
 --%>
 
 <%@page import="java.util.List"%>
@@ -18,7 +18,7 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" href="#">Customer Menu</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -53,10 +53,6 @@
                             <p class="card-text"><%= item.getDescription()%></p>
                             <h5 class="card-text text-danger">$<%= item.getPrice()%></h5>
                             <a href="#" class="btn btn-primary">Add to Order</a>
-                            <div class="btn-group btn-group-sm float-end mt-1" role="group" aria-label="Basic mixed styles example">
-                                <a type="button" class="btn btn-outline-warning">Edit</a>
-                                <a type="button" class="btn btn-outline-danger">Remove</a>
-                            </div>
                         </div>
                 </div>
             </div>

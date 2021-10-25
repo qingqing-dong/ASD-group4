@@ -1,7 +1,7 @@
 <%-- 
     Document   : menu.jsp
     Created on : 22 Sept 2021, 3:11:25 pm
-    Author     : Jiahong Li
+    Author     : bhan
 --%>
 
 <%@page import="java.util.List"%>
@@ -18,7 +18,7 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" href="#">Customer Menu</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -31,8 +31,8 @@
                             <a class="nav-link" href="#">Link</a>
                         </li>
                     </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <form class="d-flex" action="menu">
+                        <input class="form-control me-2" type="search" placeholder="Search" name="keyword">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
                 </div>
@@ -41,7 +41,6 @@
         <div class="container-md">
             <div class="row">
                 <div class="col-12 mt-3">
-                    <a class="btn btn-outline-success float-end">+ Add New Menu Item</a>
                 </div>
             </div>
             <div class="row">
@@ -57,10 +56,6 @@
                             <h5 class="card-title"><%= item.getName()%></h5>
                             <h5 class="card-text text-danger">$<%= item.getPrice()%></h5>
                             <a href="#" class="btn btn-primary">Add to Order</a>
-                            <div class="btn-group btn-group-sm float-end mt-1" role="group" aria-label="Basic mixed styles example">
-                                <a type="button" class="btn btn-outline-secondary">Edit</a>
-                                <a type="button" class="btn btn-outline-secondary">Remove</a>
-                            </div>
                         </div>
                     </div>
                 </div>
