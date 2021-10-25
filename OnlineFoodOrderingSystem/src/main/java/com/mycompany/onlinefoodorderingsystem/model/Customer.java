@@ -48,7 +48,7 @@ public class Customer {
         this.lastName = lastName;
     }
     
-    public void seteMmail(String eMail){
+    public void seteMail(String eMail){
         this.eMail = eMail;
     }
     
