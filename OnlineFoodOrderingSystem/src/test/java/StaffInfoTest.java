@@ -29,7 +29,7 @@ public class StaffInfoTest {
    
     @Test
     public void UpdateTest() throws SQLException {
-        Staff newStaff = new Staff(1000,"Justea","Ssda","adf@ere.csk","cd12345","Female","dfsdf","1231231","Manager");
+        Staff newStaff = new Staff(1000,"Justea","Ssda","adf@ere.csk","Female","dfsdf","1231231","cd12345","Manager");
         manager.updateStaff(newStaff);
         Staff staff = manager.getStaffById(1000);
         String fName = staff.getFirstName();

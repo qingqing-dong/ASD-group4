@@ -28,8 +28,8 @@ public class CustomerInfoTest {
     @Test
     public void UpdateTest() throws SQLException {
         CustomerDao manager = new CustomerDao();
-        
-        Customer newCustomer = new Customer(100,"Juste","Ssd","adf@ere.ck","cd12345","Female","dfsdf","1231231");
+
+        Customer newCustomer = new Customer(100,"Juste","Ssd","adf@ere.ck","Female","dfsdf","1231231","cd12345");
         manager.updateCustomer(newCustomer);
         
         Customer customer =  manager.getCustomerById(100);
