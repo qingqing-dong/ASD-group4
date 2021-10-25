@@ -18,25 +18,6 @@ steps:
   inputs:
      command: 'install'
 
-- task: MysqlDeploymentOnMachineGroup@1
-  inputs:
-    TaskNameSelector: 'SqlTaskFile'
-    SqlFile: 'OnlineFoodOrderingSystem/src/main/java/com/mycompany/onlinefoodorderingsystem/createOrder.sql'
-    ServerName: 'localhost'
-    DatabaseName: 'ofos'
-    SqlUsername: 'root'
-    SqlPassword: 'admin'
-
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'OnlineFoodOrderingSystem/pom.xml'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    javaHomeOption: 'JDKVersion'
-    mavenVersionOption: 'Default'
-    mavenAuthenticateFeed: false
-    effectivePomSkip: false
-    sonarQubeRunAnalysis: false
     
 - script: |
     echo Add other tasks to build, test, and deploy your project.
