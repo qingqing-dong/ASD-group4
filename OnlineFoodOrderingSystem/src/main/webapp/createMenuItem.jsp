@@ -41,19 +41,51 @@
         <div class="container" style="width: 800px;" >
             <div class="row">
                 <div class="col-12 mt-3">
-                    <a class="btn btn-secondary float-end my-3" href="menu">Back</a>
+                    <a class="btn btn-secondary float-end my-3" href="staffMenu">Back</a>
                 </div>
             </div>
             <div class="row">
-                <% MenuItem item = (MenuItem) request.getAttribute("menuItem"); %>
                 <div class="col-12">
-                        <img src="menu_pictures/<%= item.getPicture()%>" class="card-img-top" style="width: 100%;">
-                        <div class="card-body">
-                            <h5 class="card-title"><%= item.getName()%></h5>
-                            <p class="card-text"><%= item.getDescription()%></p>
-                            <h5 class="card-text text-danger">$<%= item.getPrice()%></h5>
-                            <a href="#" class="btn btn-primary">Add to Order</a>
+                    <form action="menu" method="post" enctype="multipart/form-data">
+                        <h3 class="text-primary text-center mb-3">New Menu Item</h3>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label">Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="name" required>
+                            </div>
                         </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label">Description</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="description">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label">Type</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="type" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label">Unit</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="unit" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label">Price</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control" name="price" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label">Picture</label>
+                            <div class="col-sm-10">
+                                <input type="file" class="form-control" name="picture">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Create Menu Item</button>
+                    </form>
                 </div>
             </div>
 

@@ -31,7 +31,7 @@
                             <a class="nav-link" href="#">Link</a>
                         </li>
                     </ul>
-                    <form class="d-flex" action="menu">
+                    <form class="d-flex" action="staffMenu">
                         <input class="form-control me-2" type="search" placeholder="Search" name="keyword">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
@@ -41,26 +41,39 @@
         <div class="container-md">
             <div class="row">
                 <div class="col-12 mt-3">
+                    <a class="btn btn-outline-success float-end" href="createMenuItem.jsp">+ Add New Menu Item</a>
                 </div>
             </div>
             <div class="row">
-                <% List<MenuItem> menu = (List<MenuItem>) request.getAttribute("menu"); %>
-                <%for (MenuItem item : menu) {
-                %>
-                <div class="col-12 col-md-6 col-xl-3 p-3">
-                    <div class="card">
-                        <a href="menuDetail?id=<%= item.getId()%>">
-                            <img src="menu_pictures/<%= item.getPicture()%>" class="card-img-top" style="height: 200px">
-                        </a>
-                        <div class="card-body">
-                            <h5 class="card-title"><%= item.getName()%></h5>
-                            <h5 class="card-text text-danger">$<%= item.getPrice()%></h5>
-                            <a href="#" class="btn btn-primary">Add to Order</a>
-                        </div>
-                    </div>
-                </div>
-                <%
+                <table class="table table-striped">
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Picture</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                    <% List<MenuItem> menu = (List<MenuItem>) request.getAttribute("menuItems");
+                    int id = 1;%>
+                    <%for (MenuItem item : menu) {
+                    %>
+                    <tr>
+                        <td><%= id++%></td>
+                        <td><%= item.getName()%></td>
+                        <td><%= item.getType()%></td>
+                        <td><img src="menu_pictures/<%= item.getPicture()%>" style="height: 100px;"></td>
+                        <td>$<%= item.getPrice()%></td>
+                        <td>
+                            <div class="btn-group btn-group-sm">
+                                <a class="btn btn-outline-secondary" href="updateMenuItem?id=<%= item.getId()%>">Edit</a>
+                                <a class="btn btn-outline-secondary" href="deleteMenuItem?id=<%= item.getId()%>">Remove</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <%
                     }%>
+                </table>
             </div>
 
         </div>
