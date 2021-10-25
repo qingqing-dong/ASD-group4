@@ -21,38 +21,37 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-@WebServlet("/menu")
+@WebServlet("/updateMenuItem")
 @MultipartConfig
-public class MenuServlet extends HttpServlet {
-    
+public class UpdateMenuServlet extends HttpServlet {
+
     MenuDao menuDao = new MenuDao();
-    
+
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if (request.getParameter("keyword") != null) {
-            request.setAttribute("menu", menuDao.searchMenuItem(request.getParameter("keyword")));
-        } else {
-            request.setAttribute("menu", menuDao.getMenu());
-        }
-        request.getRequestDispatcher("menu.jsp").forward(request, response);
+        MenuItem item = menuDao.getMenuItemById(Integer.parseInt(request.getParameter("id")));
+        System.out.println(item);
+        request.setAttribute("menuItem", item);
+        request.getRequestDispatcher("updateMenuItem.jsp").forward(request, response);
     }
-    
+
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         MenuItem item = new MenuItem();
+        item.setId(Integer.parseInt(request.getParameter("id")));
         item.setName(request.getParameter("name"));
         item.setDescription(request.getParameter("description"));
         item.setType(request.getParameter("type"));
         item.setUnit(request.getParameter("unit"));
         item.setPrice(Double.parseDouble(request.getParameter("price")));
         Part filePart = request.getPart("picture");
-        String fileName = filePart.getSubmittedFileName();
-        item.setPicture(fileName);
-        if (!fileName.isEmpty()) {
+        if(filePart != null){
+            String fileName = filePart.getSubmittedFileName();
+            item.setPicture(fileName);
             String uploadPath = getServletContext().getRealPath("") + File.separator + "menu_pictures";
-            File outputFilePath = new File(uploadPath + File.separator + fileName);
+            File outputFilePath = new File(uploadPath + File.separator +fileName);
             InputStream inputStream = filePart.getInputStream();
             OutputStream outputStream = new FileOutputStream(outputFilePath);
             int read = 0;
@@ -65,7 +64,7 @@ public class MenuServlet extends HttpServlet {
         } else {
             item.setPicture("noImage.png");
         }
-        menuDao.createMenuItem(item);
+        menuDao.updateMenuItem(item);
         response.sendRedirect("staffMenu");
     }
 }

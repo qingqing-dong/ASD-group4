@@ -62,8 +62,8 @@ public class CustomerUpdateServlet extends HttpServlet {
         customerDao.updateCustomer(newCustomer);
         
         request.setAttribute("customer", newCustomer);
-        
-        response.sendRedirect("customerInfo.jsp");
+        request.getRequestDispatcher("customerInfo.jsp").forward(request, response);
+
     }
    
 
