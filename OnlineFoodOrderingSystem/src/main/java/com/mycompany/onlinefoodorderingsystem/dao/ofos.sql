@@ -52,23 +52,45 @@ UNLOCK TABLES;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+
 DROP TABLE IF EXISTS `customer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `customer`
-(
-    `CUSTOMER_ID` INT auto_increment,
-    `FIRSTNAME` VARCHAR(100),
-    `LASTNAME` VARCHAR(100),
-    `EMAIL` VARCHAR(100),
-    `PASSWORD` VARCHAR(50),
-    `GENDER` VARCHAR(20),
-    `ADDRESS` VARCHAR(255),
-    `PHONENUMBER` VARCHAR(255),
-	primary key(`CUSTOMER_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=latin1;
+CREATE TABLE `customer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `FIRSTNAME` varchar(100) NOT NULL,
+  `LASTNAME` varchar(100) NOT NULL,
+  `EMAIL` varchar(100) NOT NULL,
+  `PASSWORD` varchar(100) NOT NULL,
+  `GENDER` varchar(100) NOT NULL,
+  `ADDRESS` varchar(100) NOT NULL,
+  `PHONENUMBER` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+)  AUTO_INCREMENT=100;
 
 LOCK TABLES `customer` WRITE;
-INSERT INTO `customer` VALUES (100,'James','Brown','454@gmsl.com','0000','male','2020-01-02','0452541450');
+/*!40000 ALTER TABLE `menu` DISABLE KEYS */;
+INSERT INTO `customer` VALUES (100,"Justin","Bhe", "sdf@dfs.cj","sdf2313","Male","sdfsdf", "123124");
 UNLOCK TABLES;
--- Dump completed on 2021-10-02 11:28:11
+
+DROP TABLE IF EXISTS `staff`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `staff` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `FIRSTNAME` varchar(100) NOT NULL,
+  `LASTNAME` varchar(100) NOT NULL,
+  `EMAIL` varchar(100) NOT NULL,
+  `PASSWORD` varchar(100) NOT NULL,
+  `GENDER` varchar(100) DEFAULT NULL,
+  `ADDRESS` varchar(100) DEFAULT NULL,
+  `PHONENUMBER` varchar(100) DEFAULT NULL,
+  `POSITION` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+)  AUTO_INCREMENT=1000;
+
+LOCK TABLES `staff` WRITE;
+/*!40000 ALTER TABLE `menu` DISABLE KEYS */;
+INSERT INTO `staff` VALUES (1000,"Justin","Bhe", "sdf@dfs.cj","sdf2313","Male","sdfsdf", "123124","Staff");
+UNLOCK TABLES;

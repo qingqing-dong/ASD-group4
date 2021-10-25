@@ -69,11 +69,14 @@ public class StaffUpdateServlet extends HttpServlet {
          newStaff.setAddress(request.getParameter("address")); 
          newStaff.setPhoneNumber(request.getParameter("phone"));
          newStaff.setPassword(request.getParameter("password"));
+
          newStaff.setPosition(request.getParameter("position"));
+
          
         staffDao.updateStaff(newStaff);
         
         request.setAttribute("staff", newStaff);
+
         request.getRequestDispatcher("staffInfo.jsp").forward(request, response);
     }
    
