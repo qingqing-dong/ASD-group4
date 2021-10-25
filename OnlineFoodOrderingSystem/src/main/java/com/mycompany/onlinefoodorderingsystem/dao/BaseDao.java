@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Jiahong Li
+ * @author hanbo
  */
 public class BaseDao {
 

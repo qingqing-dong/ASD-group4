@@ -53,4 +53,44 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-02 11:28:11
+
+DROP TABLE IF EXISTS `customer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `customer` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `FIRSTNAME` VARCHAR(200) NOT NULL,
+    `LASTNAME` VARCHAR(200) NOT NULL,
+    `EMAIL` VARCHAR(100) NOT NULL,
+    `PASSWORD` VARCHAR(100) NOT NULL,
+    `GENDER` VARCHAR(1000) NOT NULL,
+    `ADDRESS` VARCHAR(1000) NOT NULL,
+    `PHONENUMBER` VARCHAR(1000) NOT NULL,
+    PRIMARY KEY (`id`)
+)  AUTO_INCREMENT=100;
+
+LOCK TABLES `customer` WRITE;
+/*!40000 ALTER TABLE `customer` DISABLE KEYS */;
+INSERT INTO `customer` VALUES (100,"Justin","Bhe", "sdf@dfs.cj","sdf2313","Male", "sdfsdf", "123124");
+UNLOCK TABLES;
+
+DROP TABLE IF EXISTS `staff`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `staff` (
+  `id` int(30) NOT NULL AUTO_INCREMENT,
+  `FIRSTNAME` varchar(200) NOT NULL,
+  `LASTNAME` varchar(200) NOT NULL,
+  `EMAIL` varchar(100) NOT NULL,
+  `PASSWORD` varchar(100) NOT NULL,
+  `GENDER` varchar(1000) DEFAULT NULL,
+  `ADDRESS` varchar(1000) DEFAULT NULL,
+  `PHONENUMBER` varchar(1000) DEFAULT NULL,
+  `POSITION` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+)  AUTO_INCREMENT=1000;
+
+LOCK TABLES `staff` WRITE;
+/*!40000 ALTER TABLE `staff` DISABLE KEYS */;
+INSERT INTO `staff` VALUES (1000,"Justin","Bhe", "sdf@dfs.cj","sdf2313","Male","sdfsdf", "123124","Staff");
+UNLOCK TABLES;
