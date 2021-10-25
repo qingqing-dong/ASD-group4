@@ -27,24 +27,23 @@ public class SupplierTest {
             conn = connector.openConnection();
             db = new SupplierManager(conn);
     }
-   /* 
     @Test
     public void testRead() throws SQLException{
-         Supplier list = db.readSupplier("CCC");
+         Supplier list = db.readSupplier("Bcc");
          assertTrue(list != null);
     }
     @Test
     public void testUpdate() throws SQLException{
-        db.updateSupplier(4,"Sunny","CCC",111,"u");
-        Supplier supplier = db.readSupplier("CCC");
-        assertTrue(supplier.getSupplierPhoneNum()==111&& supplier.getStatus().equals("u")&&supplier.getCompany().equals("CCC")&& supplier.getContactName().equals("Sunny"));
-    }*/
-    /*
+        db.updateSupplier(4,"Anna","Bcc",111,"u");
+        Supplier supplier = db.readSupplier("Bcc");
+        assertTrue(supplier.getSupplierPhoneNum()==111&& supplier.getStatus().equals("u")&&supplier.getCompany().equals("Bcc")&& supplier.getContactName().equals("Anna"));
+    }
+    
     @Test
     public void testAdd() throws SQLException{
         db.createSupplier("Zelene","CCC",123,"a");
-        assertTrue(db.checkSupplier(6));
-    }*/
+        assertTrue(db.checkSupplier(4));
+    }
 
     /*
     @Test
