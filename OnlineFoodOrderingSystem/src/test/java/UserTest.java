@@ -1,5 +1,5 @@
 
-import com.mycompany.onlinefoodorderingsystem.dao.DBConnector;
+/*import com.mycompany.onlinefoodorderingsystem.dao.DBConnector;
 import com.mycompany.onlinefoodorderingsystem.dao.DBCustomerManager;
 import com.mycompany.onlinefoodorderingsystem.model.Customer;
 
@@ -32,5 +32,5 @@ public class UserTest{
         db.addCustomer("Fern", "Hewitt", "fern123@gmail.com", "fern123", "Male", "105§Quay St§Ultimo§NSW§2000", "0450321006");
         assertTrue(db.checkCustomer(1));
     }
-}
+}*/
 

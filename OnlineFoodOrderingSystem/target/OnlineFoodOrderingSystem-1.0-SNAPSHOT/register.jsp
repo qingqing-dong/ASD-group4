@@ -19,7 +19,7 @@
             String lastnameErr = (String) session.getAttribute("lastnameErr");
         %>
         <div class="register_form">
-            <form action="RegisterServlet" method="post">
+            <form action="welcome.jsp" method="post">
                 <h1> Register </h1>
                 <input type="radio" id="customer" name="role" value="customer">
                 <label for="customer">Customer</label><br>
