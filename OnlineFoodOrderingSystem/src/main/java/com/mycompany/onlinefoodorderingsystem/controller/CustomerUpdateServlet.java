@@ -63,7 +63,7 @@ public class CustomerUpdateServlet extends HttpServlet {
         
         request.setAttribute("customer", newCustomer);
         request.getRequestDispatcher("customerInfo.jsp").forward(request, response);
-
+        //response.sendRedirect("customerInfo?id=customer");
     }
    
 

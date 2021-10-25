@@ -1,17 +1,30 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.mycompany.onlinefoodorderingsystem.dao;
 
 import com.mycompany.onlinefoodorderingsystem.model.Customer;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
-
+/**
+ *
+ * @author Xin Chen
+ */
 public class DBCustomerManager {
-
-    private Statement st;
+    
+    Statement st;
 
     public DBCustomerManager(Connection conn) throws SQLException {
-        st = conn.createStatement();
+        this.st = conn.createStatement();
     }
+
 
 //Find user by email and password in the database   
     public Customer findCustomer(String email, String password) throws SQLException {
@@ -19,7 +32,7 @@ public class DBCustomerManager {
         //execute this query using the statement field       
         //add the results to a ResultSet       
         //search the ResultSet for a user using the parameters               
-        String fetch = "SELECT * FROM OFOS.CUSTOMER WHERE EMAIL='" + email + "' AND PASSWORD='" + password + "'";
+        String fetch = "SELECT * FROM customer WHERE EMAIL='" + email + "' AND PASSWORD='" + password + "'";
         ResultSet rs = st.executeQuery(fetch);
 
         while (rs.next()) {
@@ -37,26 +50,47 @@ public class DBCustomerManager {
         }
         return null;
     }
+    
+    //get customer through ID
+   public Customer getCustomerById(int id) throws SQLException{
+      
+        String fetch ="select * from customer where CUSTOMER_ID="+id;
+        ResultSet rs = st.executeQuery(fetch);
+        if(rs.next()){
+            Customer customer = new Customer();
+            customer.setId(rs.getInt("CUSTOMER_ID"));
+            customer.setFirstName(rs.getString("FIRSTNAME"));
+            customer.setLastName(rs.getString("LASTNAME"));
+            customer.seteMail(rs.getString("EMAIL"));
+            customer.setPassword(rs.getString("PASSWORD"));
+            customer.setGender(rs.getString("GENDER"));
+            customer.setAddress(rs.getString("ADDRESS"));
+            customer.setPhoneNumber(rs.getString("PHONENUMBER"));
+            return customer;
+        }
+           
+        return null;
+    }
 
 //Add a user-data into the database   
     public void addCustomer(String firstName, String lastName, String eMail, String password, String gender, String address, String phoneNumber) throws SQLException {                   //code for add-operation       
-        st.executeUpdate("INSERT INTO OFOS.CUSTOMER (FIRSTNAME, LASTNAME, EMAIL, PASSWORD, GENDER, ADDRESS, PHONENUMBER) " + "VALUES('" + firstName + "','" + lastName + "','" + eMail + "','" + password + "','" + gender + "','" + address + "','" + phoneNumber + "')");
+        st.executeUpdate("INSERT INTO ofos.customer (FIRSTNAME, LASTNAME, EMAIL, PASSWORD, GENDER, ADDRESS, PHONENUMBER) " + "VALUES('" + firstName + "','" + lastName + "','" + eMail + "','" + password + "','" + gender + "','" + address + "','" + phoneNumber + "')");
     }
 
 //update a user details in the database   
     public void updateCustomer(String userID, String firstName, String lastName, String eMail, String password, String gender, String address, String phoneNumber) throws SQLException {
         //code for update-operation   
-        st.executeUpdate("UPDATE OFOS.CUSTOMER SET FIRSTNAME='" + firstName + "', LASTNAME='" + lastName + "',EMAIL='" + eMail + "',PASSWORD='" + password + "',GENDER='" + gender + "',ADDRESS='" + address + "', PHONENUMBER='" + phoneNumber + "' WHERE USERID=" + userID + "");
+        st.executeUpdate("UPDATE customer SET FIRSTNAME='" + firstName + "', LASTNAME='" + lastName + "',EMAIL='" + eMail + "',PASSWORD='" + password + "',GENDER='" + gender + "',ADDRESS='" + address + "', PHONENUMBER='" + phoneNumber + "' WHERE USERID=" + userID + "");
     }
 
 //delete a user from the database   
     public void deleteCustomer(String userID) throws SQLException {
         //code for delete-operation   
-        st.executeUpdate("DELETE FROM OFOS.CUSTOMER WHERE USERID=" + userID + "");
+        st.executeUpdate("DELETE FROM customer WHERE USERID=" + userID + "");
     }
 
     public ArrayList<Customer> fetchCustomers() throws SQLException {
-        ResultSet rs = st.executeQuery("SELECT * FROM OFOS.CUSTOMER");
+        ResultSet rs = st.executeQuery("SELECT * FROM customer");
         ArrayList<Customer> customers = new ArrayList();
 
         while (rs.next()) {
@@ -75,7 +109,7 @@ public class DBCustomerManager {
     }
 
     public boolean checkCustomer(String userID) throws SQLException {
-        ResultSet rs = st.executeQuery("SELECT * FROM OFOS.CUSTOMER WHERE USERID=" + userID + "");
+        ResultSet rs = st.executeQuery("SELECT * FROM customer WHERE USERID=" + userID + "");
         if (rs.next()) {
             return true;
         }

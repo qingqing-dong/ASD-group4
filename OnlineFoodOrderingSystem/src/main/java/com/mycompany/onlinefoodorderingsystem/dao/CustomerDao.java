@@ -31,8 +31,23 @@ public class CustomerDao extends BaseDao {
         }catch (SQLException e) {
             e.printStackTrace();
         } 
-
     }
+    
+    public void updateCustomerPassword(Customer customer) {
+   
+        String sql = "update customer set PASSWORD=?  where id = ?";
+
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1,customer.getPassword());
+            ps.setInt(2,customer.getId());
+            ps.executeUpdate();
+        }catch (SQLException e) {
+            e.printStackTrace();
+        } 
+    }
+    
+    
     
     public Customer findCustomer(String email, String password) throws SQLException {
         //setup the select sql query string       
@@ -58,6 +73,8 @@ public class CustomerDao extends BaseDao {
         }
         return null;
     }
+    
+    
  
     public Customer getCustomerById(int id){
        

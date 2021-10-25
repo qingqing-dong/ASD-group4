@@ -30,7 +30,7 @@ public class DBStaffManager {
         //execute this query using the statement field       
         //add the results to a ResultSet       
         //search the ResultSet for a user using the parameters               
-        String fetch = "SELECT * FROM ofos.staff WHERE EMAIL='" + email + "' AND PASSWORD='" + password + "'";
+        String fetch = "SELECT * FROM staff WHERE EMAIL='" + email + "' AND PASSWORD='" + password + "'";
         ResultSet rs = st.executeQuery(fetch);
 
         while (rs.next()) {
@@ -52,23 +52,23 @@ public class DBStaffManager {
 
 //Add a user-data into the database   
     public void addStaff(String firstName, String lastName, String eMail, String password, String gender, String address, String phoneNumber, String position) throws SQLException {                   //code for add-operation       
-        st.executeUpdate("INSERT INTO ofos.staff (FIRSTNAME, LASTNAME, EMAIL, PASSWORD, GENDER, ADDRESS, PHONENUMBER, POSITION) " + "VALUES('" + firstName + "','" + lastName + "','" + eMail + "','" + password + "','" + gender + "','" + address + "','" + phoneNumber + "','" + position + "')");
+        st.executeUpdate("INSERT INTO staff (FIRSTNAME, LASTNAME, EMAIL, PASSWORD, GENDER, ADDRESS, PHONENUMBER, POSITION) " + "VALUES('" + firstName + "','" + lastName + "','" + eMail + "','" + password + "','" + gender + "','" + address + "','" + phoneNumber + "','" + position + "')");
     }
 
 //update a user details in the database   
     public void updateStaff(String userID, String firstName, String lastName, String eMail, String password, String gender, String address, String phoneNumber, String position) throws SQLException {
         //code for update-operation   
-        st.executeUpdate("UPDATE ofos.staff SET FIRSTNAME='" + firstName + "', LASTNAME='" + lastName + "',EMAIL='" + eMail + "',PASSWORD='" + password + "',GENDER='" + gender + "',ADDRESS='" + address + "', PHONENUMBER='" + phoneNumber + "', POSITION='" + position + "' WHERE ID=" + userID + "");
+        st.executeUpdate("UPDATE staff SET FIRSTNAME='" + firstName + "', LASTNAME='" + lastName + "',EMAIL='" + eMail + "',PASSWORD='" + password + "',GENDER='" + gender + "',ADDRESS='" + address + "', PHONENUMBER='" + phoneNumber + "', POSITION='" + position + "' WHERE ID=" + userID + "");
     }
 
 //delete a user from the database   
     public void deleteStaff(String userID) throws SQLException {
         //code for delete-operation   
-        st.executeUpdate("DELETE FROM ofos.staff WHERE USERID=" + userID + "");
+        st.executeUpdate("DELETE FROM staff WHERE USERID=" + userID + "");
     }
 
     public ArrayList<Staff> fetchStaffs() throws SQLException {
-        ResultSet rs = st.executeQuery("SELECT * FROM ofos.staff");
+        ResultSet rs = st.executeQuery("SELECT * FROM staff");
         ArrayList<Staff> staffs = new ArrayList();
 
         while (rs.next()) {
@@ -87,12 +87,32 @@ public class DBStaffManager {
     }
 
     public boolean checkStaff(String userID) throws SQLException {
-        ResultSet rs = st.executeQuery("SELECT * FROM ofos.staff WHERE USERID=" + userID + "");
+        ResultSet rs = st.executeQuery("SELECT * FROM staff WHERE USERID=" + userID + "");
         if (rs.next()) {
             return true;
         }
         return false;
     }
 
+    public Staff getStaffById(int id) throws SQLException{
+      
+        String fetch ="select * from staff where CUSTOMER_ID="+id;
+        ResultSet rs = st.executeQuery(fetch);
+        if(rs.next()){
+            Staff staff = new Staff();
+            staff.setId(rs.getInt("CUSTOMER_ID"));
+            staff.setFirstName(rs.getString("FIRSTNAME"));
+            staff.setLastName(rs.getString("LASTNAME"));
+            staff.seteMail(rs.getString("EMAIL"));
+            staff.setPassword(rs.getString("PASSWORD"));
+            staff.setGender(rs.getString("GENDER"));
+            staff.setAddress(rs.getString("ADDRESS"));
+            staff.setPhoneNumber(rs.getString("PHONENUMBER"));
+            staff.setPosition(rs.getString("POSITION"));
+            return staff;
+        }
+           
+        return null;
+    }
     
 }

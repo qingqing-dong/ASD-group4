@@ -17,6 +17,18 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <%--Load customer from session, this should be pased from previous page--%>
+        <% 
+            
+       Customer customer = (Customer) request.getAttribute("customer");
+          
+           
+           //CustomerDao customerDao = new CustomerDao();
+           //Customer customer = customerDao.getCustomerById(100);
+            
+            
+        %>
+        
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Navbar</a>
@@ -40,25 +52,7 @@
             </div>
         </nav>
         
-        <%--Load customer from session, this should be pased from previous page--%>
-        <% 
-            
-       //Customer customer = (Customer) request.getAttribute("customer");
-           /* Customer customer = new Customer();
-            customer.setId(100);
-            customer.setFirstname("Justiney");
-            customer.setLastname("Jithin");
-            customer.setEmail("justiney@gdk.com");
-            customer.setPassword("00002");
-            customer.setPhone("0123456789");
-            customer.setGender("female");
-            customer.setAddress("2 willis st");*/
-           
-           CustomerDao customerDao = new CustomerDao();
-           Customer customer = customerDao.getCustomerById(100);
-            
-            
-        %>
+        
         
         <%---This is table to show the info of a customer, only ---%>
         <div class="info">

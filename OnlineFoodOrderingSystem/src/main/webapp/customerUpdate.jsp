@@ -67,8 +67,8 @@
             <tr><td>Phone number:</td><td><input id= "phone" type="text" name="phone" size="20"value="<%=customer.getPhoneNumber() %>"required></td></tr>
             <tr><td>Address:</td><td><input type="text" name="address" size="30" value="<%=customer.getAddress()  %>"required></td></tr>
             <tr><td>Email</td><td><input type="text" id="email" name="email" value="<%=customer.geteMail() %>"required></td></tr>
-            <tr><td>Password</td><td><input type="text" name="password" value="<%=customer.getPassword() %>"required></td></tr>
-            <tr><td><input class="button" type="submit" value="update"></td> <td><a type="cancel" href="customerInfo.jsp">back</a></td></tr>
+            <tr><td>Password</td><td><input type="password"  id="password" name="password"  value="<%=customer.getPassword() %>" required></td></tr>
+            <tr><td><input class="button" type="submit" value="update"></td> <td><a type="cancel" href="customerInfo?id=<%= customer.getId()%>">back</a></td></tr>
         </table>
             </form>
             
