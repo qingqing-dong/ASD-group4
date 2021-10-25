@@ -56,9 +56,5 @@ public class OrderTest {
         assertTrue(db.findOrder(101)==null);
     }
     
-    public void testUpdate() throws SQLException {
-        db.updateOrder(1001, 101, 10, 100);
-        Order order = db.findOrder(101);
-        assertTrue(order.getAmount()!=100 && order.getQuantity()==10);
-    }
+   
 }
