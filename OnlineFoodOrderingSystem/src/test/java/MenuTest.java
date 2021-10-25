@@ -12,22 +12,22 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.*;
 import org.junit.Test;
 import org.mockito.Mock;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
- * @author Jiahong Li
+ * @author
  */
 public class MenuTest {
-    
+
     MenuDao menuDao = new MenuDao();
 
     @Test
-    public void testServlet() throws Exception {
+    public void testGetAllMenuItem() throws Exception {
         List<MenuItem> list = menuDao.getMenu();
         assertTrue(list.size()>0);
     }
@@ -38,4 +38,39 @@ public class MenuTest {
         assertEquals("Tamal", item.getName());
     }
     
+    @Test
+    public void testCreateMenuItemById() throws Exception {
+        List<MenuItem> list = menuDao.getMenu();
+        int oldSize = list.size();
+        MenuItem item = new MenuItem();
+        item.setName("Test Name");
+        item.setDescription("Test Des");
+        item.setType("Test Type");
+        item.setUnit("Test unit");
+        item.setPrice(10.99);
+        item.setPicture("");
+        menuDao.createMenuItem(item);
+        list = menuDao.getMenu();
+        assertEquals(oldSize+1, list.size());
+    }
+    
+    @Test
+    public void testUpdateMenuItemById() throws Exception {
+        List<MenuItem> list = menuDao.getMenu();
+        MenuItem oldItem = list.get(list.size()-1);
+        oldItem.setName("Update Name");
+        menuDao.updateMenuItem(oldItem);
+        MenuItem updatedItem = menuDao.getMenuItemById(oldItem.getId());
+        assertEquals("Update Name", updatedItem.getName());
+    }
+    
+    @Test
+    public void testDeleteMenuItemById() throws Exception {
+        List<MenuItem> list = menuDao.getMenu();
+        int oldSize = list.size();
+        int id = list.get(oldSize-1).getId();
+        menuDao.deleteMenuItemById(id);
+        list = menuDao.getMenu();
+        assertEquals(oldSize-1, list.size());
+    }
 }
