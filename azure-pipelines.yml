@@ -26,7 +26,11 @@ steps:
       AUTO_INCREMENT=1000;
       
       insert into ofos.`order`(dishID,customerID,quantity,amount,orderDate,State)
-      value(1003,10003,5,50,"5/6/2021","In preparation")
+      value(1001,10002,5,50,"5/6/2021","In preparation")
+      insert into ofos.`order`(dishID,customerID,quantity,amount,orderDate,State)
+      value(1002,10002,6,90,"5/6/2021","In preparation")
+      insert into ofos.`order`(dishID,customerID,quantity,amount,orderDate,State)
+      value(1003,10003,4,10,"5/6/2021","In preparation")
     ServerName: 'localhost'
     DatabaseName: 'ofos'
     SqlUsername: 'root'
