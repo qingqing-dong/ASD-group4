@@ -13,6 +13,31 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
+- task: MysqlDeploymentOnMachineGroup@1
+  inputs:
+    TaskNameSelector: 'InlineSqlTask'
+    SqlInline: |
+      CREATE TABLE `order` (`ID` INT NOT NULL auto_increment, `dishID` INT, `customerID` INT, `quantity` INT, amount INT, `orderDate` text, `State` text, PRIMARY KEY (`ID`))
+      AUTO_INCREMENT=1000;
+      
+      insert into ofos.`order`(dishID,customerID,quantity,amount,orderDate,State)
+      value(1003,10003,5,50,"5/6/2021","In preparation")
+    ServerName: 'localhost'
+    DatabaseName: 'ofos'
+    SqlUsername: 'root'
+    SqlPassword: 'admin'
+
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'OnlineFoodOrderingSystem/pom.xml'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    javaHomeOption: 'JDKVersion'
+    mavenVersionOption: 'Default'
+    mavenAuthenticateFeed: false
+    effectivePomSkip: false
+    sonarQubeRunAnalysis: false
+
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
